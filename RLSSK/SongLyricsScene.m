@@ -7,11 +7,14 @@
 //
 
 #import "SongLyricsScene.h"
+#import "MenuScene.h"
 #import "LyricsModel.h"
 
 @interface SongLyricsScene()
 
-//@property (nonatomic) LyricsModel *lyricsModel;
+@property (nonatomic) SKSpriteNode *leftButton;
+@property (nonatomic) SKSpriteNode *rightButton;
+@property (nonatomic) SKSpriteNode *menuButton;
 
 @end
 
@@ -21,7 +24,7 @@
     self = [super initWithSize:size];
     if (self) {
         
-//        self.lyricsModel = [[LyricsModel alloc] init];
+        [self createButtons];
     }
     return self;
 }
@@ -34,10 +37,53 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    NSString *nodeTapped = node.name;
+    
+    SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
+    SKScene *nextScene = [[MenuScene alloc] initWithSize:self.size];
+    
+    if ([nodeTapped isEqualToString:@"menuButton"]) {
+        
+        [self.view presentScene:nextScene transition:transition];
+    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+}
+
+-(void)createButtons {
+    self.leftButton = [SKSpriteNode spriteNodeWithImageNamed:@"leftButton"];
+    self.menuButton = [SKSpriteNode spriteNodeWithImageNamed:@"menuButton"];
+    self.rightButton = [SKSpriteNode spriteNodeWithImageNamed:@"rightButton"];
+    
+    self.leftButton.name = @"leftButton";
+    self.menuButton.name = @"menuButton";
+    self.rightButton.name = @"rightButton";
+    
+    self.leftButton.position = CGPointMake(self.size.width * 1/3, self.size.height/6);
+    self.menuButton.position = CGPointMake(self.size.width * 1/2, self.size.height/6);
+    self.rightButton.position = CGPointMake(self.size.width * 2/3, self.size.height/6);
+    
+    [self.leftButton setScale:0.1];
+    [self.menuButton setScale:0.1];
+    [self.rightButton setScale:0.1];
+    
+    [self addChild:self.leftButton];
+    [self addChild:self.menuButton];
+    [self addChild:self.rightButton];
+}
+
+-(void)setButtonTargetWithLeftButton:(SKSpriteNode *)leftButton scene1:(SKScene *)scene1 rightButton:(SKSpriteNode *)rightButton scene2:(SKScene *)scene2 {
+    
+    // register the scene we are currently in
+    // learn what our new neighbor scenes are
+    // transition to the neighbor scene if pressed
+    
 }
 
 -(void)createCustomLabel:(NSString *)string {
@@ -199,10 +245,10 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
-    SKEmitterNode *rain = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"Snow" ofType:@"sks"]];
-    rain.position = CGPointMake(self.size.width / 2, self.size.height);
-    [rain advanceSimulationTime:1];     // only if we want rain to start falling already
-    [self addChild:rain];
+    SKEmitterNode *snow = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"Snow" ofType:@"sks"]];
+    snow.position = CGPointMake(self.size.width / 2, self.size.height);
+    [snow advanceSimulationTime:1];     // only if we want rain to start falling already
+    [self addChild:snow];
 }
 
 @end
