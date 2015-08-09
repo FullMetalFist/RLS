@@ -49,7 +49,7 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:@"button"]) {
-        SKTransition *reveal = [SKTransition fadeWithDuration:0.5];
+        SKTransition *reveal = [SKTransition doorsOpenHorizontalWithDuration:1.5];
         MenuScene *menuScene = [MenuScene sceneWithSize:self.frame.size];
         [self.view presentScene:menuScene transition:reveal];
     }

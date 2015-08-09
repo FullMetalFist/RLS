@@ -13,7 +13,7 @@
 #import "MenuScene.h"
 #import "LyricsModel.h"
 
-@interface SongLyricsScene() <SKPhysicsContactDelegate>
+@interface SongLyricsScene() 
 
 @property (nonatomic) SKSpriteNode *leftButton;
 @property (nonatomic) SKSpriteNode *rightButton;
@@ -92,6 +92,8 @@
 }
 
 -(void)createCustomLabel:(NSString *)string {
+    
+    // TODO: give ability to change font color and background!
     NSString *tmp = string; // long string - just type whatever in here
     
     // parse through the string and put each words into an array.
@@ -127,142 +129,23 @@
         _multiLineLabel.name = [NSString stringWithFormat:@"line%d",i];
         _multiLineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
         _multiLineLabel.fontSize = 24;
-        _multiLineLabel.fontColor = [SKColor colorWithRed:1 green:1 blue:1.0 alpha:1.0];
+//        _multiLineLabel.fontColor = [SKColor colorWithRed:1 green:1 blue:1.0 alpha:1.0];
+        _multiLineLabel.fontColor = [SKColor whiteColor];
         _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2+200-20*i);
-        _multiLineLabel.color = [UIColor blueColor];
+        _multiLineLabel.color = [SKColor greenColor];
         [self addChild:_multiLineLabel];
     }
 }
 
 @end
 
-@implementation SwingScene
 
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_swingLyrics]];
-    }
-    return self;
-}
-// TODO: add touch/physics support
 
-@end
 
-@implementation ShadowScene
 
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_shadowLyrics]];
-    }
-    return self;
-}
 
-// TODO: accelerometer and shadow intertwined
-// TODO: character with shadow
-// TODO: apply geometry to each node
 
-@end
 
-@implementation RailwayScene
-
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_railwayLyrics]];
-    }
-    return self;
-}
-// some scene railway
-// TODO: objects/animals scroll by
--(void)didMoveToView:(SKView *)view {
-    // Create ground
-    SKTexture *groundTexture = [SKTexture textureWithImageNamed:@"Ground"];
-    groundTexture.filteringMode = SKTextureFilteringNearest;
-    
-    SKAction *moveGroundSprite = [SKAction moveByX:-groundTexture.size.width * 2 y:0 duration:0.02 * groundTexture.size.width * 2];
-    SKAction *resetGroundSprite = [SKAction moveByX:groundTexture.size.width * 2 y:0 duration:0];
-    SKAction *moveGroundSpritesForever = [SKAction repeatActionForever:[SKAction sequence:@[moveGroundSprite, resetGroundSprite]]];
-    
-    for (int i = 0; i < 2 + self.frame.size.width / (groundTexture.size.width * 2); i++) {
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:groundTexture];
-        [sprite setScale:2.0];
-        sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2);
-        [sprite runAction:moveGroundSpritesForever];
-        [self addChild:sprite];
-    }
-    
-    // Create skyline
-    SKTexture *skylineTexture = [SKTexture textureWithImageNamed:@"Skyline"];
-    skylineTexture.filteringMode = SKTextureFilteringNearest;
-    
-    SKAction *moveSkylineSprite = [SKAction moveByX:-skylineTexture.size.width * 2 y:0 duration:0.1 * skylineTexture.size.width * 2];
-    SKAction *resetSkylineSprite = [SKAction moveByX:skylineTexture.size.width * 2 y:0 duration:0];
-    SKAction *moveSkylineSpriteForever = [SKAction repeatActionForever:[SKAction sequence:@[moveSkylineSprite, resetSkylineSprite]]];
-    
-    for (int i = 0; i < 2 + self.frame.size.width / (skylineTexture.size.width * 2); i++) {
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:skylineTexture];
-        [sprite setScale:2.0];
-        sprite.zPosition = -20;
-        sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2 + groundTexture.size.height * 2);
-        [sprite runAction:moveSkylineSpriteForever];
-        [self addChild:sprite];
-    }
-}
-
-// TODO: wheels up close, then animate loop until voice starts
-// TODO: song gets faster/slower (?) or pitch higher/lower
-// TODO: vanishing point
-// TODO: window to outside
-
-@end
-
-@implementation MoonScene
-
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_moonLyrics]];
-    }
-    return self;
-}
-
--(void)didMoveToView:(SKView *)view {
-    
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-    
-    // change gravity settings
-    self.physicsWorld.gravity = CGVectorMake(0, 0);
-    self.physicsWorld.contactDelegate = self;   // didBeginContact: & didEndContact:
-    
-    [self addBall];
-}
-
-- (void)addBall {
-    // new sprite from the ball
-    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
-    
-    CGPoint ballPoint = CGPointMake(self.size.width / 2, self.size.height/2);
-    ball.position = ballPoint;
-    [ball setScale:4.0];
-    
-    ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.frame.size.width/2];
-    ball.physicsBody.friction = 0;
-    ball.physicsBody.linearDamping = 0;
-    ball.physicsBody.restitution = 1;
-    
-    // add to screen
-    [self addChild:ball];
-    
-    // create vector
-    CGVector simpleVector = CGVectorMake(10, 10);
-    
-    // apply vector to ball
-    [ball.physicsBody applyImpulse:simpleVector];
-}
-
-@end
 
 @implementation WindyScene
 
@@ -294,30 +177,30 @@
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     self.physicsWorld.contactDelegate = self;   // didBeginContact: & didEndContact:
     
-    [self addBall];
+    [self addSun];
 }
 
-- (void)addBall {
+- (void)addSun {
     // new sprite from the ball
-    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+    SKSpriteNode *sun = [SKSpriteNode spriteNodeWithImageNamed:@"sunFace"];
     
-    [ball setScale:4.0];
-    CGPoint ballPoint = CGPointMake(self.size.width / 2, self.size.height/2);
-    ball.position = ballPoint;
-    ball.color = [UIColor yellowColor];
-    ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.frame.size.width/2];
-    ball.physicsBody.friction = 0;
-    ball.physicsBody.linearDamping = 0;
-    ball.physicsBody.restitution = 1;
+    [sun setScale:0.3];
+    CGPoint sunPoint = CGPointMake(self.size.width / 2, self.size.height/2);
+    sun.position = sunPoint;
+    sun.color = [UIColor yellowColor];
+    sun.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:sun.frame.size.width/2];
+    sun.physicsBody.friction = 0;
+    sun.physicsBody.linearDamping = 0;
+    sun.physicsBody.restitution = 1;
     
     // add to screen
-    [self addChild:ball];
+    [self addChild:sun];
     
     // create vector
     CGVector simpleVector = CGVectorMake(10, 10);
     
     // apply vector to ball
-    [ball.physicsBody applyImpulse:simpleVector];
+    [sun.physicsBody applyImpulse:simpleVector];
 }
 
 @end

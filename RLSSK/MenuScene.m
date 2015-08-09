@@ -9,6 +9,11 @@
 #import "MenuScene.h"
 #import "SongLyricsScene.h"
 
+#import "SwingScene.h"
+#import "ShadowScene.h"
+#import "RailwayScene.h"
+#import "MoonScene.h"
+
 typedef NS_ENUM(NSUInteger, titleButton){
     swingButton,
     shadowButton,
@@ -50,7 +55,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
 //    NSInteger songNumber = [node.name integerValue];
     NSString *nodeTapped = node.name;
     
-    SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
+    SKTransition *transition = [SKTransition doorsOpenHorizontalWithDuration:1.5];
     SKScene *nextScene = [[SongLyricsScene alloc] initWithSize:self.size];
     
 //    switch (songNumber) {

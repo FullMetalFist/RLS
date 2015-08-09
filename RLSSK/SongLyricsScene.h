@@ -9,7 +9,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "LyricsModel.h"
 
-@interface SongLyricsScene : SKScene
+@interface SongLyricsScene : SKScene <SKPhysicsContactDelegate>
+
+-(void)createCustomLabel:(NSString *)string;
 
 @end
 
@@ -19,17 +21,6 @@
  TODO: create SKEmitterNode for effects in differing scenes
  */
 
-@interface SwingScene : SongLyricsScene
-@end
-
-@interface ShadowScene : SongLyricsScene
-@end
-
-@interface RailwayScene : SongLyricsScene
-@end
-
-@interface MoonScene : SongLyricsScene
-@end
 
 @interface WindyScene : SongLyricsScene
 @end
