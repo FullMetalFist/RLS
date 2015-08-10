@@ -20,15 +20,3 @@
  TODO: create button to return to menu
  TODO: create SKEmitterNode for effects in differing scenes
  */
-
-
-
-
-
-
-
-@interface WinterScene : SongLyricsScene
-@end
-
-@interface CounterpaneScene : SongLyricsScene
-@end

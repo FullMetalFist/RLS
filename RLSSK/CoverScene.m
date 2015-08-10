@@ -30,6 +30,10 @@
         button.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 100);
         button.color = [SKColor lightGrayColor];
         SKLabelNode *buttonLabel = [SKLabelNode labelNodeWithText:@"tap here to continue"];
+        
+        UIFont *rlsFont = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+        
+        buttonLabel.fontName = rlsFont.fontName;
         [button addChild:buttonLabel];
         [self addChild:button];
         

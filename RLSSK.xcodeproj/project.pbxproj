@@ -12,6 +12,8 @@
 		7C362DD61B78F7300044B2AC /* SunScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DD51B78F7300044B2AC /* SunScene.m */; };
 		7C362DDA1B7903240044B2AC /* BoatScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DD91B7903240044B2AC /* BoatScene.m */; };
 		7C362DDD1B7903530044B2AC /* RainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DDC1B7903530044B2AC /* RainScene.m */; };
+		7C362DE01B791EBE0044B2AC /* WinterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DDF1B791EBE0044B2AC /* WinterScene.m */; };
+		7C362DE31B791F150044B2AC /* CounterpaneScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DE21B791F150044B2AC /* CounterpaneScene.m */; };
 		7C6456DA1B6ED8450030E8A7 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C6456D81B6ED8450030E8A7 /* Rain.sks */; };
 		7C6456DB1B6ED8450030E8A7 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C6456D91B6ED8450030E8A7 /* spark.png */; };
 		7C6456DD1B6EDD7C0030E8A7 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C6456DC1B6EDD7C0030E8A7 /* Snow.sks */; };
@@ -53,6 +55,10 @@
 		7C362DD91B7903240044B2AC /* BoatScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoatScene.m; path = SongLyricsSub/BoatScene.m; sourceTree = "<group>"; };
 		7C362DDB1B7903530044B2AC /* RainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RainScene.h; path = SongLyricsSub/RainScene.h; sourceTree = "<group>"; };
 		7C362DDC1B7903530044B2AC /* RainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RainScene.m; path = SongLyricsSub/RainScene.m; sourceTree = "<group>"; };
+		7C362DDE1B791EBE0044B2AC /* WinterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinterScene.h; path = SongLyricsSub/WinterScene.h; sourceTree = "<group>"; };
+		7C362DDF1B791EBE0044B2AC /* WinterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WinterScene.m; path = SongLyricsSub/WinterScene.m; sourceTree = "<group>"; };
+		7C362DE11B791F150044B2AC /* CounterpaneScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CounterpaneScene.h; path = SongLyricsSub/CounterpaneScene.h; sourceTree = "<group>"; };
+		7C362DE21B791F150044B2AC /* CounterpaneScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CounterpaneScene.m; path = SongLyricsSub/CounterpaneScene.m; sourceTree = "<group>"; };
 		7C6456D81B6ED8450030E8A7 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
 		7C6456D91B6ED8450030E8A7 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		7C6456DC1B6EDD7C0030E8A7 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
@@ -157,6 +163,10 @@
 				7C362DD91B7903240044B2AC /* BoatScene.m */,
 				7C362DDB1B7903530044B2AC /* RainScene.h */,
 				7C362DDC1B7903530044B2AC /* RainScene.m */,
+				7C362DDE1B791EBE0044B2AC /* WinterScene.h */,
+				7C362DDF1B791EBE0044B2AC /* WinterScene.m */,
+				7C362DE11B791F150044B2AC /* CounterpaneScene.h */,
+				7C362DE21B791F150044B2AC /* CounterpaneScene.m */,
 			);
 			name = SongLyricsSub;
 			sourceTree = "<group>";
@@ -336,6 +346,7 @@
 				7CF95E151B6AA672004A76B7 /* GameViewController.m in Sources */,
 				7C8751A31B77412400B45C11 /* MoonScene.m in Sources */,
 				7C362DDD1B7903530044B2AC /* RainScene.m in Sources */,
+				7C362DE31B791F150044B2AC /* CounterpaneScene.m in Sources */,
 				7CF95E3A1B6AB5A0004A76B7 /* LyricsModel.m in Sources */,
 				7CF95E371B6AB488004A76B7 /* SongLyricsScene.m in Sources */,
 				7C362DDA1B7903240044B2AC /* BoatScene.m in Sources */,
@@ -346,6 +357,7 @@
 				7C87519A1B773CC800B45C11 /* SwingScene.m in Sources */,
 				7CF95E101B6AA672004A76B7 /* CoverScene.m in Sources */,
 				7CF95E0A1B6AA672004A76B7 /* main.m in Sources */,
+				7C362DE01B791EBE0044B2AC /* WinterScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

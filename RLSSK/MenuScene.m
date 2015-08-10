@@ -17,6 +17,8 @@
 #import "SunScene.h"
 #import "BoatScene.h"
 #import "RainScene.h"
+#import "WinterScene.h"
+#import "CounterpaneScene.h"
 
 
 typedef NS_ENUM(NSUInteger, titleButton){
@@ -41,6 +43,11 @@ typedef NS_ENUM(NSUInteger, titleButton){
 -(instancetype)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     if (self) {
+        self.anchorPoint = CGPointMake(0.5, 0.5);
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"coverSansTitle"];
+        background.size = self.frame.size;
+        [self addChild:background];
+        
         [self loadButtons];
     }
     return self;
@@ -164,12 +171,15 @@ typedef NS_ENUM(NSUInteger, titleButton){
 }
 
 -(void)loadButtons {
+    UIFont *rlsFont = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+    
     SKSpriteNode *swingButton = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(300, 90)];
 //    swingButton.name = @"swingButton";
     swingButton.name = @"swingButton";
-
+    
     swingButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 450);
     SKLabelNode *swingLabel = [SKLabelNode labelNodeWithText:@"THE SWING"];
+    swingLabel.fontName = rlsFont.fontName;
     [swingButton addChild:swingLabel];
     [self addChild:swingButton];
     
@@ -177,6 +187,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     shadowButton.name = @"shadowButton";
     shadowButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 350);
     SKLabelNode *shadowLabel = [SKLabelNode labelNodeWithText:@"MY SHADOW"];
+    shadowLabel.fontName = rlsFont.fontName;
     [shadowButton addChild:shadowLabel];
     [self addChild:shadowButton];
     
@@ -184,6 +195,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     railwayButton.name = @"railwayButton";
     railwayButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 250);
     SKLabelNode *railwayLabel = [SKLabelNode labelNodeWithText:@"FROM A RAILWAY CARRIAGE"];
+    railwayLabel.fontName = rlsFont.fontName;
     [railwayButton addChild:railwayLabel];
     [self addChild:railwayButton];
     
@@ -191,6 +203,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     moonButton.name = @"moonButton";
     moonButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 150);
     SKLabelNode *moonLabel = [SKLabelNode labelNodeWithText:@"THE MOON"];
+    moonLabel.fontName = rlsFont.fontName;
     [moonButton addChild:moonLabel];
     [self addChild:moonButton];
     
@@ -198,6 +211,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     windyButton.name = @"windyButton";
     windyButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 50);
     SKLabelNode *windyLabel = [SKLabelNode labelNodeWithText:@"WINDY NIGHTS"];
+    windyLabel.fontName = rlsFont.fontName;
     [windyButton addChild:windyLabel];
     [self addChild:windyButton];
     
@@ -205,6 +219,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     sunButton.name = @"sunButton";
     sunButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 50);
     SKLabelNode *sunLabel = [SKLabelNode labelNodeWithText:@"THE SUN'S TRAVELS"];
+    sunLabel.fontName = rlsFont.fontName;
     [sunButton addChild:sunLabel];
     [self addChild:sunButton];
     
@@ -212,6 +227,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     boatButton.name = @"boatButton";
     boatButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 150);
     SKLabelNode *boatLabel = [SKLabelNode labelNodeWithText:@"WHERE GO THE BOATS?"];
+    boatLabel.fontName = rlsFont.fontName;
     [boatButton addChild:boatLabel];
     [self addChild:boatButton];
     
@@ -219,6 +235,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     rainButton.name = @"rainButton";
     rainButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 250);
     SKLabelNode *rainLabel = [SKLabelNode labelNodeWithText:@"RAIN"];
+    rainLabel.fontName = rlsFont.fontName;
     [rainButton addChild:rainLabel];
     [self addChild:rainButton];
     
@@ -226,6 +243,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     winterButton.name = @"winterButton";
     winterButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 350);
     SKLabelNode *winterLabel = [SKLabelNode labelNodeWithText:@"WINTER-TIME"];
+    winterLabel.fontName = rlsFont.fontName;
     [winterButton addChild:winterLabel];
     [self addChild:winterButton];
     
@@ -233,6 +251,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
     counterpaneButton.name = @"counterpaneButton";
     counterpaneButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 450);
     SKLabelNode *counterpaneLabel = [SKLabelNode labelNodeWithText:@"LAND OF COUNTERPANE"];
+    counterpaneLabel.fontName = rlsFont.fontName;
     [counterpaneButton addChild:counterpaneLabel];
     [self addChild:counterpaneButton];
 }
