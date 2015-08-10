@@ -1,22 +1,22 @@
 //
-//  MoonScene.m
+//  SunScene.m
 //  RLSSK
 //
-//  Created by Michael Vilabrera on 8/9/15.
+//  Created by Michael Vilabrera on 8/10/15.
 //  Copyright (c) 2015 Giving Tree. All rights reserved.
 //
 
-#import "MoonScene.h"
+#import "SunScene.h"
 #import <CoreMotion/CoreMotion.h>
 
-@interface MoonScene()
+@interface SunScene()
 
-@property (nonatomic) SKSpriteNode *moon;
+@property (nonatomic) SKSpriteNode *sun;
 @property (nonatomic) CMMotionManager *motionManager;
 
 @end
 
-@implementation MoonScene {
+@implementation SunScene{
     CGFloat _destX;
     CGFloat _destY;
 }
@@ -24,7 +24,7 @@
 -(instancetype)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_moonLyrics]];
+        [self createCustomLabel:[lyricsModel h_sunLyrics]];
         
         self.motionManager = [[CMMotionManager alloc] init];
         _destX = 0;
@@ -41,12 +41,12 @@
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     self.physicsWorld.contactDelegate = self;   // didBeginContact: & didEndContact:
     
-    [self addMoon];
+    [self addSun];
     
     if (self.motionManager.accelerometerAvailable) {
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-            CGFloat currentX = self.moon.position.x;
-            CGFloat currentY = self.moon.position.y;
+            CGFloat currentX = self.sun.position.x;
+            CGFloat currentY = self.sun.position.y;
             
             if (accelerometerData.acceleration.x < 0) {
                 _destX = currentX + accelerometerData.acceleration.x * 100;
@@ -65,32 +65,32 @@
     }
 }
 
-- (void)addMoon {
+- (void)addSun {
     // new sprite from the ball
-    self.moon = [SKSpriteNode spriteNodeWithImageNamed:@"moonFace"];
+    self.sun = [SKSpriteNode spriteNodeWithImageNamed:@"sunFace"];
     
-    CGPoint moonPoint = CGPointMake(self.size.width / 2, self.size.height/2);
-    self.moon.position = moonPoint;
-    [self.moon setScale:0.3];
-    
-    self.moon.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.moon.frame.size.width/2];
-//    moon.physicsBody.friction = 0;
-//    moon.physicsBody.linearDamping = 0;
-//    moon.physicsBody.restitution = 1;
+    [self.sun setScale:0.6];
+    CGPoint sunPoint = CGPointMake(self.size.width / 2, self.size.height/2);
+    self.sun.position = sunPoint;
+    self.sun.color = [UIColor yellowColor];
+    self.sun.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.sun.frame.size.width/2];
+//    self.sun.physicsBody.friction = 0;
+//    self.sun.physicsBody.linearDamping = 0;
+//    self.sun.physicsBody.restitution = 1;
     
     // add to screen
-    [self addChild:self.moon];
+    [self addChild:self.sun];
     
 //    // create vector
 //    CGVector simpleVector = CGVectorMake(10, 10);
 //    
 //    // apply vector to ball
-//    [moon.physicsBody applyImpulse:simpleVector];
+//    [self.sun.physicsBody applyImpulse:simpleVector];
 }
 
 - (void)update:(NSTimeInterval)currentTime {
     SKAction *action = [SKAction sequence:@[[SKAction moveToX:_destX duration:1],[SKAction moveToY:_destY duration:1]]];
-    [self.moon runAction:action];
+    [self.sun runAction:action];
 }
 
 @end

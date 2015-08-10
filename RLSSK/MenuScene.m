@@ -13,6 +13,11 @@
 #import "ShadowScene.h"
 #import "RailwayScene.h"
 #import "MoonScene.h"
+#import "WindyScene.h"
+#import "SunScene.h"
+#import "BoatScene.h"
+#import "RainScene.h"
+
 
 typedef NS_ENUM(NSUInteger, titleButton){
     swingButton,

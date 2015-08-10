@@ -22,17 +22,10 @@
  */
 
 
-@interface WindyScene : SongLyricsScene
-@end
 
-@interface SunScene : SongLyricsScene
-@end
 
-@interface BoatScene : SongLyricsScene
-@end
 
-@interface RainScene : SongLyricsScene
-@end
+
 
 @interface WinterScene : SongLyricsScene
 @end

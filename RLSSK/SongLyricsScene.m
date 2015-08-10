@@ -147,95 +147,13 @@
 
 
 
-@implementation WindyScene
 
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_windyLyrics]];
-    }
-    return self;
-}
 
-@end
 
-@implementation SunScene
 
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_sunLyrics]];
-    }
-    return self;
-}
 
--(void)didMoveToView:(SKView *)view {
-    
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-    
-    // change gravity settings
-    self.physicsWorld.gravity = CGVectorMake(0, 0);
-    self.physicsWorld.contactDelegate = self;   // didBeginContact: & didEndContact:
-    
-    [self addSun];
-}
 
-- (void)addSun {
-    // new sprite from the ball
-    SKSpriteNode *sun = [SKSpriteNode spriteNodeWithImageNamed:@"sunFace"];
-    
-    [sun setScale:0.3];
-    CGPoint sunPoint = CGPointMake(self.size.width / 2, self.size.height/2);
-    sun.position = sunPoint;
-    sun.color = [UIColor yellowColor];
-    sun.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:sun.frame.size.width/2];
-    sun.physicsBody.friction = 0;
-    sun.physicsBody.linearDamping = 0;
-    sun.physicsBody.restitution = 1;
-    
-    // add to screen
-    [self addChild:sun];
-    
-    // create vector
-    CGVector simpleVector = CGVectorMake(10, 10);
-    
-    // apply vector to ball
-    [sun.physicsBody applyImpulse:simpleVector];
-}
 
-@end
-
-@implementation BoatScene
-
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_boatsLyrics]];
-    }
-    return self;
-}
-
-@end
-
-@implementation RainScene
-
--(instancetype)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        LyricsModel *lyricsModel = [[LyricsModel alloc] init];
-        [self createCustomLabel:[lyricsModel h_rainLyrics]];
-    }
-    return self;
-}
-
--(void)didMoveToView:(SKView *)view {
-    SKEmitterNode *rain = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"Rain" ofType:@"sks"]];
-    rain.position = CGPointMake(self.size.width / 2, self.size.height);
-    rain.zPosition = -50;
-    [rain advanceSimulationTime:1];     // only if we want rain to start falling already
-    [self addChild:rain];
-}
-
-@end
 
 @implementation WinterScene
 
