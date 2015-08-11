@@ -5,6 +5,8 @@
 //  Created by Michael Vilabrera on 8/10/15.
 //  Copyright (c) 2015 Giving Tree. All rights reserved.
 //
+// TODO: shake device for snow effect (snowglobe)
+// TODO: fireplace/ mantle
 
 #import "WinterScene.h"
 

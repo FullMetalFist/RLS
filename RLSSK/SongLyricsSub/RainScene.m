@@ -5,6 +5,9 @@
 //  Created by Michael Vilabrera on 8/10/15.
 //  Copyright (c) 2015 Giving Tree. All rights reserved.
 //
+// TODO: rain creates (spots) from the inside with emitter
+// TODO: user taps and plays w rain drops
+// TODO: rain drops with physics
 
 #import "RainScene.h"
 

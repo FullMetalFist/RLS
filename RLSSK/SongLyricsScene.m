@@ -8,6 +8,12 @@
 // TODO: Refactor SongLyricsScene subclasses into their own files
 // TODO: Refactor SongLyricsScene subclasses into an array
 //      to be called from the menu buttons
+// TODO: colorize background with X Y Z Core Motion
+// TODO: one sprite to create many things (mosaic)
+// TODO: puzzle component
+// TODO: font name
+// TODO: assets
+// TODO: song supports
 
 #import "SongLyricsScene.h"
 #import "MenuScene.h"

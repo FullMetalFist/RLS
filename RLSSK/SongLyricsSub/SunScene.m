@@ -5,6 +5,7 @@
 //  Created by Michael Vilabrera on 8/10/15.
 //  Copyright (c) 2015 Giving Tree. All rights reserved.
 //
+// TODO: drag sun up and down device to change brightness
 
 #import "SunScene.h"
 #import <CoreMotion/CoreMotion.h>

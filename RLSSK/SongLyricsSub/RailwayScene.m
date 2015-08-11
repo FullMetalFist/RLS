@@ -19,6 +19,7 @@
 }
 // some scene railway
 // TODO: objects/animals scroll by
+// TODO: smoke & sound from locomotive in scene
 -(void)didMoveToView:(SKView *)view {
     // Create ground
     SKTexture *groundTexture = [SKTexture textureWithImageNamed:@"Ground"];

@@ -18,5 +18,6 @@
     return self;
 }
 // TODO: add touch/physics support
+// TODO: girl/boy in a swing
 
 @end
