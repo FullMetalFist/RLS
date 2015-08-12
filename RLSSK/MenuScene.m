@@ -171,7 +171,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
 }
 
 -(void)loadButtons {
-    UIFont *rlsFont = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+    UIFont *rlsFont = [UIFont fontWithName:@"MarcusFont" size:14];
     
     SKSpriteNode *swingButton = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(300, 90)];
 //    swingButton.name = @"swingButton";

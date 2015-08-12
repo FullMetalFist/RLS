@@ -133,7 +133,7 @@ static const NSInteger menuZposition = 30;
             // NSLog(@"%@", lineStr);
         }
         // creation of the SKLabelNode itself
-        SKLabelNode *_multiLineLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+        SKLabelNode *_multiLineLabel = [SKLabelNode labelNodeWithFontNamed:@"MarcusFont"];
         _multiLineLabel.text = lineStr;
         // name each label node so you can animate it if u wish
         // the rest of the code should be self-explanatory
