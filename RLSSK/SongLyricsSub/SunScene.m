@@ -75,18 +75,9 @@
     self.sun.position = sunPoint;
     self.sun.color = [UIColor yellowColor];
     self.sun.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.sun.frame.size.width/2];
-//    self.sun.physicsBody.friction = 0;
-//    self.sun.physicsBody.linearDamping = 0;
-//    self.sun.physicsBody.restitution = 1;
     
     // add to screen
     [self addChild:self.sun];
-    
-//    // create vector
-//    CGVector simpleVector = CGVectorMake(10, 10);
-//    
-//    // apply vector to ball
-//    [self.sun.physicsBody applyImpulse:simpleVector];
 }
 
 - (void)update:(NSTimeInterval)currentTime {

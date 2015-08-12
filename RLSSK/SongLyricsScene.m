@@ -5,7 +5,6 @@
 //  Created by Michael Vilabrera on 7/30/15.
 //  Copyright (c) 2015 Giving Tree. All rights reserved.
 //
-// TODO: Refactor SongLyricsScene subclasses into their own files
 // TODO: Refactor SongLyricsScene subclasses into an array
 //      to be called from the menu buttons
 // TODO: colorize background with X Y Z Core Motion
@@ -18,6 +17,8 @@
 #import "SongLyricsScene.h"
 #import "MenuScene.h"
 #import "LyricsModel.h"
+
+static const NSInteger menuZposition = 30;
 
 @interface SongLyricsScene() 
 
@@ -78,6 +79,10 @@
     self.menuButton.position = CGPointMake(self.size.width * 1/2, self.size.height/6);
     self.rightButton.position = CGPointMake(self.size.width * 2/3, self.size.height/6);
     
+    self.leftButton.zPosition = menuZposition;
+    self.menuButton.zPosition = menuZposition;
+    self.rightButton.zPosition = menuZposition;
+    
     [self.leftButton setScale:0.1];
     [self.menuButton setScale:0.1];
     [self.rightButton setScale:0.1];
@@ -134,11 +139,12 @@
         // the rest of the code should be self-explanatory
         _multiLineLabel.name = [NSString stringWithFormat:@"line%d",i];
         _multiLineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
-        _multiLineLabel.fontSize = 24;
+        _multiLineLabel.fontSize = 20;
 //        _multiLineLabel.fontColor = [SKColor colorWithRed:1 green:1 blue:1.0 alpha:1.0];
         _multiLineLabel.fontColor = [SKColor whiteColor];
-        _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2+200-20*i);
+        _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2 + 200 - 20*i);
         _multiLineLabel.color = [SKColor greenColor];
+        
         [self addChild:_multiLineLabel];
     }
 }
