@@ -11,12 +11,21 @@
 
 #import "RainScene.h"
 
+@interface RainScene()
+
+@end
+
 @implementation RainScene
 
 -(instancetype)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
         [self createCustomLabel:[lyricsModel h_rainLyrics]];
+        
+        self.physicsWorld.gravity = CGVectorMake(0, -9.8);
+        self.physicsWorld.contactDelegate = self;
+        
+        
     }
     return self;
 }
@@ -29,6 +38,20 @@
     [self addChild:rain];
 }
 
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInNode:self];
+        
+        SKSpriteNode *rain = [SKSpriteNode spriteNodeWithImageNamed:@"drop"];
+        rain.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:rain.frame.size.width];
+        rain.physicsBody.affectedByGravity = YES;
+        rain.physicsBody.velocity = CGVectorMake(0, -9.8);
+        rain.position = location;
+        [rain setScale:0.2];
+        
+        [self addChild:rain];
+        // TODO: add category bitmask for connecting drop & emitter splash
+    }
+}
 
 @end

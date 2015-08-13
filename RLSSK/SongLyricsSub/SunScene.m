@@ -30,6 +30,7 @@
         self.motionManager = [[CMMotionManager alloc] init];
         _destX = 0;
         _destY = 0;
+        
     }
     return self;
 }
@@ -83,6 +84,18 @@
 - (void)update:(NSTimeInterval)currentTime {
     SKAction *action = [SKAction sequence:@[[SKAction moveToX:_destX duration:1],[SKAction moveToY:_destY duration:1]]];
     [self.sun runAction:action];
+    
+}
+
+- (SKColor *)modifyColorWithRed:(CGFloat)red blue:(CGFloat)blue green:(CGFloat)green alpha:(CGFloat)alpha {
+    SKColor *specialColor;
+    
+    specialColor = [SKColor colorWithRed:red
+                                   green:green
+                                    blue:blue
+                                   alpha:alpha];
+    
+    return specialColor;
 }
 
 @end
