@@ -10,6 +10,8 @@
 		7C23BA8C1B7BE0B300EAA59A /* MarcusFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C23BA8B1B7BE0B300EAA59A /* MarcusFont.ttf */; };
 		7C23BA901B7C065800EAA59A /* Wind.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C23BA8F1B7C065800EAA59A /* Wind.sks */; };
 		7C23BA921B7CE5B600EAA59A /* Splash.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C23BA911B7CE5B600EAA59A /* Splash.sks */; };
+		7C23BA981B7E2F7300EAA59A /* TextDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C23BA971B7E2F7300EAA59A /* TextDisplay.m */; };
+		7C23BA9B1B7E319500EAA59A /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C23BA9A1B7E319500EAA59A /* Utils.m */; };
 		7C362DD01B78F6A20044B2AC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C362DCF1B78F6A20044B2AC /* CoreMotion.framework */; };
 		7C362DD31B78F6DA0044B2AC /* WindyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DD21B78F6DA0044B2AC /* WindyScene.m */; };
 		7C362DD61B78F7300044B2AC /* SunScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C362DD51B78F7300044B2AC /* SunScene.m */; };
@@ -52,6 +54,10 @@
 		7C23BA8B1B7BE0B300EAA59A /* MarcusFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarcusFont.ttf; sourceTree = "<group>"; };
 		7C23BA8F1B7C065800EAA59A /* Wind.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Wind.sks; sourceTree = "<group>"; };
 		7C23BA911B7CE5B600EAA59A /* Splash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Splash.sks; sourceTree = "<group>"; };
+		7C23BA961B7E2F7300EAA59A /* TextDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDisplay.h; sourceTree = "<group>"; };
+		7C23BA971B7E2F7300EAA59A /* TextDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDisplay.m; sourceTree = "<group>"; };
+		7C23BA991B7E319500EAA59A /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		7C23BA9A1B7E319500EAA59A /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		7C362DCF1B78F6A20044B2AC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		7C362DD11B78F6DA0044B2AC /* WindyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindyScene.h; path = SongLyricsSub/WindyScene.h; sourceTree = "<group>"; };
 		7C362DD21B78F6DA0044B2AC /* WindyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindyScene.m; path = SongLyricsSub/WindyScene.m; sourceTree = "<group>"; };
@@ -147,6 +153,10 @@
 				7CF95E331B6AAB38004A76B7 /* MenuScene.m */,
 				7CF95E351B6AB488004A76B7 /* SongLyricsScene.h */,
 				7CF95E361B6AB488004A76B7 /* SongLyricsScene.m */,
+				7C23BA961B7E2F7300EAA59A /* TextDisplay.h */,
+				7C23BA971B7E2F7300EAA59A /* TextDisplay.m */,
+				7C23BA991B7E319500EAA59A /* Utils.h */,
+				7C23BA9A1B7E319500EAA59A /* Utils.m */,
 				7C8751971B773BF600B45C11 /* SongLyricsSub */,
 			);
 			name = Scenes;
@@ -357,6 +367,7 @@
 				7C362DD31B78F6DA0044B2AC /* WindyScene.m in Sources */,
 				7C8751A01B77407E00B45C11 /* RailwayScene.m in Sources */,
 				7CF95E151B6AA672004A76B7 /* GameViewController.m in Sources */,
+				7C23BA981B7E2F7300EAA59A /* TextDisplay.m in Sources */,
 				7C8751A31B77412400B45C11 /* MoonScene.m in Sources */,
 				7C362DDD1B7903530044B2AC /* RainScene.m in Sources */,
 				7C362DE31B791F150044B2AC /* CounterpaneScene.m in Sources */,
@@ -364,6 +375,7 @@
 				7CF95E371B6AB488004A76B7 /* SongLyricsScene.m in Sources */,
 				7C362DDA1B7903240044B2AC /* BoatScene.m in Sources */,
 				7CF95E341B6AAB38004A76B7 /* MenuScene.m in Sources */,
+				7C23BA9B1B7E319500EAA59A /* Utils.m in Sources */,
 				7C87519D1B773FFE00B45C11 /* ShadowScene.m in Sources */,
 				7CF95E0D1B6AA672004A76B7 /* AppDelegate.m in Sources */,
 				7C362DD61B78F7300044B2AC /* SunScene.m in Sources */,

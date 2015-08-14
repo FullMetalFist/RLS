@@ -8,6 +8,7 @@
 // TODO: toy boat with a leash user drags around
 // TODO: user drags finger and makes waves
 // TODO: user drags finger and makes a gust of wind (physics)
+// TODO: maybe dynamically download images of water (let user decide)
 
 #import "BoatScene.h"
 

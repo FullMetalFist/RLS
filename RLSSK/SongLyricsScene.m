@@ -17,6 +17,7 @@
 #import "SongLyricsScene.h"
 #import "MenuScene.h"
 #import "LyricsModel.h"
+#import "Utils.h"
 
 static const NSInteger menuZposition = 30;
 
@@ -133,7 +134,7 @@ static const NSInteger menuZposition = 30;
             // NSLog(@"%@", lineStr);
         }
         // creation of the SKLabelNode itself
-        SKLabelNode *_multiLineLabel = [SKLabelNode labelNodeWithFontNamed:@"MarcusFont"];
+        SKLabelNode *_multiLineLabel = [SKLabelNode labelNodeWithFontNamed:FontTitle];
         _multiLineLabel.text = lineStr;
         // name each label node so you can animate it if u wish
         // the rest of the code should be self-explanatory
@@ -144,6 +145,7 @@ static const NSInteger menuZposition = 30;
         _multiLineLabel.fontColor = [SKColor whiteColor];
         _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2 + 200 - 20*i);
         _multiLineLabel.color = [SKColor greenColor];
+        
         
         [self addChild:_multiLineLabel];
     }
