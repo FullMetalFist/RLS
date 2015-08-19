@@ -13,4 +13,8 @@ extern NSString *const FontTitle;
 
 @interface Utils : NSObject
 
+// TODO: speaking or singing (?) with AVFoundation listening event
+// glissando (sp?) for the start of poem                          
+// sound to keep user engaged
+// core image filter with camera manipulation (?)
 @end

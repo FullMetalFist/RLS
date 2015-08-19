@@ -12,18 +12,75 @@
 
 #import "BoatScene.h"
 
+@interface BoatScene ()
+
+@property (nonatomic) SKSpriteNode *boat;
+
+@end
+
 @implementation BoatScene
 
 -(instancetype)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
         [self createCustomLabel:[lyricsModel h_boatsLyrics]];
+        
+        [self createPhysicsWorld];
+        
+        [self addBoat];
     }
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void)addBoat {
+    self.boat = [SKSpriteNode spriteNodeWithImageNamed:@"boat"];
     
+    [self.boat setScale:0.5];
+    CGPoint boatPoint = CGPointMake(self.size.width / 2, 400);
+    self.boat.position = boatPoint;
+    self.boat.color = [UIColor clearColor];
+    self.boat.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.boat.frame.size.width / 2];
+    self.boat.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    self.boat.physicsBody.dynamic = NO;
+    self.boat.zPosition = 1;
+    self.boat.name = @"boat";
+    [self addChild:self.boat];
+}
+
+- (void)createPhysicsWorld {
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    
+    self.physicsWorld.gravity = CGVectorMake(0, 0);
+    self.physicsWorld.contactDelegate = self;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//    for (UITouch *touch in touches) {
+//        CGPoint location = [touch locationInNode:self];
+//        CGPoint nextPosition = CGPointMake(location.x, 400);
+//        self.boat.position = nextPosition;
+//        // stop boat from going too far
+//        if (nextPosition.x < self.boat.size.width / 2) {
+//            nextPosition.x = self.boat.size.width / 2;
+//        }
+//        if (nextPosition.x > self.size.width - (self.boat.size.width / 2)) {
+//            nextPosition.x = self.size.width - (self.boat.size.width / 2);
+//        }
+//    }
+    SKNode *user = [self childNodeWithName:@"boat"];
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint positionInScene = [touch locationInNode:self];
+    
+    // determine speed
+    NSInteger minDuration = 2.0;
+    NSInteger maxDuration = 4.0;
+    NSInteger rangeDuration = maxDuration - minDuration;
+    NSInteger actualDuration = (arc4random() % rangeDuration) + minDuration;
+    
+    // create an action
+    SKAction *actionMove = [SKAction moveTo:CGPointMake(positionInScene.x, self.boat.position.y) duration:actualDuration];
+    [user runAction:actionMove];
 }
 
 @end

@@ -19,7 +19,7 @@
 #import "LyricsModel.h"
 #import "Utils.h"
 
-static const NSInteger menuZposition = 30;
+static const NSInteger menuZposition = 60;
 
 @interface SongLyricsScene() 
 
