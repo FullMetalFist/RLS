@@ -21,7 +21,9 @@
 
 static const NSInteger menuZposition = 60;
 
-@interface SongLyricsScene() 
+@interface SongLyricsScene()
+
+@property (nonatomic) SKNode *buttonBar;
 
 @property (nonatomic) SKSpriteNode *leftButton;
 @property (nonatomic) SKSpriteNode *rightButton;
@@ -57,7 +59,7 @@ static const NSInteger menuZposition = 60;
     SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
     SKScene *nextScene = [[MenuScene alloc] initWithSize:self.size];
     
-    if ([nodeTapped isEqualToString:@"menuButton"]) {
+    if ([nodeTapped isEqualToString:MenuButton]) {
         
         [self.view presentScene:nextScene transition:transition];
     }
@@ -68,17 +70,21 @@ static const NSInteger menuZposition = 60;
 }
 
 -(void)createButtons {
+    self.buttonBar = [SKNode node];
+    
     self.leftButton = [SKSpriteNode spriteNodeWithImageNamed:@"leftButton"];
     self.menuButton = [SKSpriteNode spriteNodeWithImageNamed:@"menuButton"];
     self.rightButton = [SKSpriteNode spriteNodeWithImageNamed:@"rightButton"];
     
-    self.leftButton.name = @"leftButton";
-    self.menuButton.name = @"menuButton";
-    self.rightButton.name = @"rightButton";
+    self.leftButton.name = LeftButton;
+    self.menuButton.name = MenuButton;
+    self.rightButton.name = RightButton;
     
     self.leftButton.position = CGPointMake(self.size.width * 1/3, self.size.height/6);
     self.menuButton.position = CGPointMake(self.size.width * 1/2, self.size.height/6);
     self.rightButton.position = CGPointMake(self.size.width * 2/3, self.size.height/6);
+    
+    self.buttonBar.zPosition = menuZposition - 1;
     
     self.leftButton.zPosition = menuZposition;
     self.menuButton.zPosition = menuZposition;
@@ -88,9 +94,11 @@ static const NSInteger menuZposition = 60;
     [self.menuButton setScale:0.1];
     [self.rightButton setScale:0.1];
     
-    [self addChild:self.leftButton];
-    [self addChild:self.menuButton];
-    [self addChild:self.rightButton];
+    [self addChild:self.buttonBar];
+    
+    [self.buttonBar addChild:self.leftButton];
+    [self.buttonBar addChild:self.menuButton];
+    [self.buttonBar addChild:self.rightButton];
 }
 
 -(void)setButtonTargetWithLeftButton:(SKSpriteNode *)leftButton scene1:(SKScene *)scene1 rightButton:(SKSpriteNode *)rightButton scene2:(SKScene *)scene2 {

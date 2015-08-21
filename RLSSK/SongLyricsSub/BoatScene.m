@@ -11,6 +11,8 @@
 // TODO: maybe dynamically download images of water (let user decide)
 
 #import "BoatScene.h"
+#import "MenuScene.h"
+#import "Utils.h"
 
 @interface BoatScene ()
 
@@ -70,17 +72,39 @@
     SKNode *user = [self childNodeWithName:@"boat"];
     
     UITouch *touch = [touches anyObject];
-    CGPoint positionInScene = [touch locationInNode:self];
+    CGPoint touchLocation = [touch locationInNode:self];
+    SKNode *touchedNode = [self nodeAtPoint:touchLocation];
     
-    // determine speed
-    NSInteger minDuration = 2.0;
-    NSInteger maxDuration = 4.0;
-    NSInteger rangeDuration = maxDuration - minDuration;
-    NSInteger actualDuration = (arc4random() % rangeDuration) + minDuration;
-    
-    // create an action
-    SKAction *actionMove = [SKAction moveTo:CGPointMake(positionInScene.x, self.boat.position.y) duration:actualDuration];
-    [user runAction:actionMove];
+    if ([touchedNode.name isEqualToString:LeftButton]) {
+        //
+        NSLog(@"transition");
+    }
+    else if ([touchedNode.name isEqualToString:MenuButton]) {
+        //
+        NSLog(@"transition");
+        SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
+        SKScene *nextScene = [[MenuScene alloc] initWithSize:self.size];
+        
+        if ([touchedNode.name isEqualToString:MenuButton]) {
+            
+            [self.view presentScene:nextScene transition:transition];
+        }
+    }
+    else if ([touchedNode.name isEqualToString:RightButton]) {
+        //
+        NSLog(@"transition");
+    }
+    else {
+        // determine speed
+        NSInteger minDuration = 2.0;
+        NSInteger maxDuration = 4.0;
+        NSInteger rangeDuration = maxDuration - minDuration;
+        NSInteger actualDuration = (arc4random() % rangeDuration) + minDuration;
+        
+        // create an action
+        SKAction *actionMove = [SKAction moveTo:CGPointMake(touchLocation.x, self.boat.position.y) duration:actualDuration];
+        [user runAction:actionMove];
+    }
 }
 
 @end

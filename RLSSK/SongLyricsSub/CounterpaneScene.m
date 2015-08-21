@@ -9,6 +9,17 @@
 // TODO: background is a large bed
 
 #import "CounterpaneScene.h"
+#import "MenuScene.h"
+#import "Utils.h"
+
+#define ARC4RANDOM_MAX      0x100000000
+
+static inline CGFloat ScalarRandomRange(CGFloat min,
+                                        CGFloat max)
+{
+    return floorf(((double)arc4random() / ARC4RANDOM_MAX) *
+                  (max - min) + min);
+}
 
 @interface CounterpaneScene()
 
@@ -40,17 +51,43 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self.toybox];
+    UITouch *touch = [touches anyObject];
+    CGPoint touchLocation = [touch locationInNode:self];
+    SKNode *touchedNode = [self nodeAtPoint:touchLocation];
+    
+    if ([touchedNode.name isEqualToString:LeftButton]) {
+        //
+        NSLog(@"transition");
+    }
+    else if ([touchedNode.name isEqualToString:MenuButton]) {
+        //
+        NSLog(@"transition");
+        SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
+        SKScene *nextScene = [[MenuScene alloc] initWithSize:self.size];
         
-        SKSpriteNode *toy = [SKSpriteNode spriteNodeWithImageNamed:@"toySoldier"];
-        toy.name = @"toy";
-        toy.position = location;
-        [toy setScale:0.05];
-        [self addChild:toy];
+        if ([touchedNode.name isEqualToString:MenuButton]) {
+            
+            [self.view presentScene:nextScene transition:transition];
+        }
+    }
+    else if ([touchedNode.name isEqualToString:RightButton]) {
+        //
+        NSLog(@"transition");
+    }
+    else {
+        [self spawnSoldier];
     }
 }
 
-
+- (void)spawnSoldier {
+    SKSpriteNode *toy = [SKSpriteNode spriteNodeWithImageNamed:@"toySoldier"];
+    toy.name = @"toy";
+    toy.position = CGPointMake(self.size.width + toy.size.width / 2, ScalarRandomRange(toy.size.height / 2, self.size.height - toy.size.height/2));
+    [toy setScale:0.5];
+    [self addChild:toy];
+    SKAction *actionMove = [SKAction moveToX:-toy.size.width/2 duration:2.0];
+    SKAction *actionRemove = [SKAction removeFromParent];
+    [toy runAction:[SKAction sequence:@[actionMove, actionRemove]]];
+}
 
 @end

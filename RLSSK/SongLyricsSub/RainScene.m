@@ -10,6 +10,8 @@
 // TODO: rain drops with physics
 
 #import "RainScene.h"
+#import "MenuScene.h"
+#import "Utils.h"
 
 @interface RainScene()
 
@@ -46,19 +48,50 @@ static const uint32_t bottomCategory = 0x1 << 1;
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
-        SKSpriteNode *rain = [SKSpriteNode spriteNodeWithImageNamed:@"drop"];
-        rain.name = @"rain";
-        rain.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:rain.frame.size.width];
-        rain.physicsBody.affectedByGravity = YES;
-        rain.physicsBody.velocity = CGVectorMake(0, -9.8);
-        rain.physicsBody.categoryBitMask = rainCategory;
-        rain.physicsBody.contactTestBitMask = bottomCategory;
-        rain.position = location;
-        [rain setScale:0.2];
+        UITouch *touch = [touches anyObject];
+        CGPoint touchLocation = [touch locationInNode:self];
+        SKNode *touchedNode = [self nodeAtPoint:touchLocation];
         
-        [self addChild:rain];
+        if ([touchedNode.name isEqualToString:LeftButton]) {
+            //
+            NSLog(@"transition");
+        }
+        else if ([touchedNode.name isEqualToString:MenuButton]) {
+            //
+            NSLog(@"transition");
+            SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
+            SKScene *nextScene = [[MenuScene alloc] initWithSize:self.size];
+            
+            if ([touchedNode.name isEqualToString:MenuButton]) {
+                
+                [self.view presentScene:nextScene transition:transition];
+            }
+        }
+        else if ([touchedNode.name isEqualToString:RightButton]) {
+            //
+            NSLog(@"transition");
+        }
+        else {
+            [self addRain:location];
+        }
+        
         // TODO: add category bitmask for connecting drop & emitter splash
     }
+}
+
+- (void)addRain:(CGPoint)location {
+    
+    SKSpriteNode *rain = [SKSpriteNode spriteNodeWithImageNamed:@"drop"];
+    rain.name = @"rain";
+    rain.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:rain.frame.size.width];
+    rain.physicsBody.affectedByGravity = YES;
+    rain.physicsBody.velocity = CGVectorMake(0, -9.8);
+    rain.physicsBody.categoryBitMask = rainCategory;
+    rain.physicsBody.contactTestBitMask = bottomCategory;
+    rain.position = location;
+    [rain setScale:0.2];
+    
+    [self addChild:rain];
 }
 
 - (void)addSplashAtPosition:(CGPoint)position {

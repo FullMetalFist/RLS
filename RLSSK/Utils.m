@@ -9,6 +9,9 @@
 #import "Utils.h"
 
 NSString *const FontTitle = @"MarcusFont";
+NSString *const LeftButton = @"LeftButton";
+NSString *const MenuButton = @"MenuButton";
+NSString *const RightButton = @"RightButton";
 
 @implementation Utils
 

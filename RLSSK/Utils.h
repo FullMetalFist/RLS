@@ -10,6 +10,9 @@
 
 static const NSInteger TextSize = 36;
 extern NSString *const FontTitle;
+extern NSString *const LeftButton;
+extern NSString *const MenuButton;
+extern NSString *const RightButton;
 
 @interface Utils : NSObject
 
@@ -17,4 +20,5 @@ extern NSString *const FontTitle;
 // glissando (sp?) for the start of poem                          
 // sound to keep user engaged
 // core image filter with camera manipulation (?)
+
 @end
