@@ -18,7 +18,7 @@
     return self;
 }
 
-// TODO: accelerometer and shadow intertwined
+// TODO: accelerometer and shadow intertwined (!)
 // TODO: character with shadow
 // TODO: apply geometry to each node
 // TODO: boy/toy/girl user touches the shadow and shadow gets longer/shorter

@@ -20,5 +20,7 @@ extern NSString *const RightButton;
 // glissando (sp?) for the start of poem                          
 // sound to keep user engaged
 // core image filter with camera manipulation (?)
+// place user image into sprites in app
+// wwdc song
 
 @end

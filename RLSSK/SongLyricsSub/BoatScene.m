@@ -17,6 +17,7 @@
 @interface BoatScene ()
 
 @property (nonatomic) SKSpriteNode *boat;
+@property (nonatomic) NSArray *boatBouyFrames;
 
 @end
 
@@ -32,6 +33,18 @@
         [self addBoat];
     }
     return self;
+}
+
+-(void)boatFrames {
+    NSMutableArray *bouyFrames = [NSMutableArray array];    // since (float) is a keyword!
+    SKTextureAtlas *boatBouyAnimatedAtlas = [SKTextureAtlas atlasNamed:@"BoatAnimate"];
+    NSInteger numImages = boatBouyAnimatedAtlas.textureNames.count;
+    for (NSInteger i = 1; i <= numImages; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"boatAnimate%lu", (long)i];
+        SKTexture *temp = [boatBouyAnimatedAtlas textureNamed:textureName];
+        [bouyFrames addObject:temp];
+    }
+    self.boatBouyFrames = bouyFrames;
 }
 
 -(void)addBoat {
@@ -57,18 +70,7 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//    for (UITouch *touch in touches) {
-//        CGPoint location = [touch locationInNode:self];
-//        CGPoint nextPosition = CGPointMake(location.x, 400);
-//        self.boat.position = nextPosition;
-//        // stop boat from going too far
-//        if (nextPosition.x < self.boat.size.width / 2) {
-//            nextPosition.x = self.boat.size.width / 2;
-//        }
-//        if (nextPosition.x > self.size.width - (self.boat.size.width / 2)) {
-//            nextPosition.x = self.size.width - (self.boat.size.width / 2);
-//        }
-//    }
+
     SKNode *user = [self childNodeWithName:@"boat"];
     
     UITouch *touch = [touches anyObject];
@@ -103,7 +105,8 @@
         
         // create an action
         SKAction *actionMove = [SKAction moveTo:CGPointMake(touchLocation.x, self.boat.position.y) duration:actualDuration];
-        [user runAction:actionMove];
+        SKAction *turnBoat = [SKAction animateWithTextures:self.boatBouyFrames timePerFrame:0.1f resize:NO restore:YES];
+        [user runAction:[SKAction group:@[actionMove, turnBoat]]];
     }
 }
 

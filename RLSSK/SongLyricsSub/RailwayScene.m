@@ -60,4 +60,7 @@
 // TODO: vanishing point
 // TODO: window to outside
 
+// TODO: rotate train on X axis
+// TODO: rotate tracks on Y axis
+
 @end

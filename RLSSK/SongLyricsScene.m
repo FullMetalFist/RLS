@@ -37,6 +37,8 @@ static const NSInteger menuZposition = 60;
     self = [super initWithSize:size];
     if (self) {
         
+        [self tileBackground];
+        
         [self createButtons];
     }
     return self;
@@ -101,6 +103,28 @@ static const NSInteger menuZposition = 60;
     [self.buttonBar addChild:self.rightButton];
 }
 
+-(void)tileBackground {
+    
+    CGSize coverageSize = CGSizeMake(self.size.width, self.size.height);
+    CGRect textureSize = CGRectMake(0, 0, 100, 100);
+    CGImageRef backgroundCGImage = [UIImage imageNamed:@"backgroundCover"].CGImage;
+    UIGraphicsBeginImageContext(coverageSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawTiledImage(context, textureSize, backgroundCGImage);
+    UIImage *tiledBackground = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    SKTexture *backgroundTexture = [SKTexture textureWithCGImage:tiledBackground.CGImage];
+    
+    SKSpriteNode *backgroundDefault = [SKSpriteNode spriteNodeWithTexture:backgroundTexture];
+    backgroundDefault.zPosition = 0;
+    backgroundDefault.anchorPoint = CGPointMake(0, 0);
+    backgroundDefault.position = CGPointMake(0.5, 0.5);
+    [self addChild:backgroundDefault];
+    
+}
+
 -(void)setButtonTargetWithLeftButton:(SKSpriteNode *)leftButton scene1:(SKScene *)scene1 rightButton:(SKSpriteNode *)rightButton scene2:(SKScene *)scene2 {
     
     // register the scene we are currently in
@@ -150,7 +174,7 @@ static const NSInteger menuZposition = 60;
         _multiLineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
         _multiLineLabel.fontSize = 20;
 //        _multiLineLabel.fontColor = [SKColor colorWithRed:1 green:1 blue:1.0 alpha:1.0];
-        _multiLineLabel.fontColor = [SKColor whiteColor];
+        _multiLineLabel.fontColor = [SKColor blackColor];
         _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2 + 200 - 20*i);
         _multiLineLabel.color = [SKColor greenColor];
         

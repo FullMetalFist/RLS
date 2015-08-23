@@ -26,6 +26,7 @@
 		7C87519D1B773FFE00B45C11 /* ShadowScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C87519C1B773FFE00B45C11 /* ShadowScene.m */; };
 		7C8751A01B77407E00B45C11 /* RailwayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C87519F1B77407E00B45C11 /* RailwayScene.m */; };
 		7C8751A31B77412400B45C11 /* MoonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8751A21B77412400B45C11 /* MoonScene.m */; };
+		7CA655341B8A53C300C2D046 /* BoatAnimate.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */; };
 		7CF95E0A1B6AA672004A76B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E091B6AA672004A76B7 /* main.m */; };
 		7CF95E0D1B6AA672004A76B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E0C1B6AA672004A76B7 /* AppDelegate.m */; };
 		7CF95E101B6AA672004A76B7 /* CoverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E0F1B6AA672004A76B7 /* CoverScene.m */; };
@@ -82,6 +83,7 @@
 		7C87519F1B77407E00B45C11 /* RailwayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RailwayScene.m; path = SongLyricsSub/RailwayScene.m; sourceTree = "<group>"; };
 		7C8751A11B77412400B45C11 /* MoonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoonScene.h; path = SongLyricsSub/MoonScene.h; sourceTree = "<group>"; };
 		7C8751A21B77412400B45C11 /* MoonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoonScene.m; path = SongLyricsSub/MoonScene.m; sourceTree = "<group>"; };
+		7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BoatAnimate.atlas; sourceTree = "<group>"; };
 		7CF95E041B6AA672004A76B7 /* RLSSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RLSSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF95E081B6AA672004A76B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF95E091B6AA672004A76B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				7CF95E361B6AB488004A76B7 /* SongLyricsScene.m */,
 				7C23BA961B7E2F7300EAA59A /* TextDisplay.h */,
 				7C23BA971B7E2F7300EAA59A /* TextDisplay.m */,
+				7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */,
 				7C23BA991B7E319500EAA59A /* Utils.h */,
 				7C23BA9A1B7E319500EAA59A /* Utils.m */,
 				7C8751971B773BF600B45C11 /* SongLyricsSub */,
@@ -337,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA655341B8A53C300C2D046 /* BoatAnimate.atlas in Resources */,
 				7C23BA901B7C065800EAA59A /* Wind.sks in Resources */,
 				7CF95E1D1B6AA672004A76B7 /* LaunchScreen.xib in Resources */,
 				7C23BA921B7CE5B600EAA59A /* Splash.sks in Resources */,
