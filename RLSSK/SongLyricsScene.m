@@ -118,7 +118,7 @@ static const NSInteger menuZposition = 60;
     SKTexture *backgroundTexture = [SKTexture textureWithCGImage:tiledBackground.CGImage];
     
     SKSpriteNode *backgroundDefault = [SKSpriteNode spriteNodeWithTexture:backgroundTexture];
-    backgroundDefault.zPosition = 0;
+    backgroundDefault.zPosition = -80;
     backgroundDefault.anchorPoint = CGPointMake(0, 0);
     backgroundDefault.position = CGPointMake(0.5, 0.5);
     [self addChild:backgroundDefault];

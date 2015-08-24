@@ -46,9 +46,9 @@ static const uint32_t bottomCategory = 0x1 << 1;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        UITouch *touch = [touches anyObject];
+//        CGPoint location = [touch locationInNode:self];
+//        
+//        UITouch *touch = [touches anyObject];
         CGPoint touchLocation = [touch locationInNode:self];
         SKNode *touchedNode = [self nodeAtPoint:touchLocation];
         
@@ -72,7 +72,7 @@ static const uint32_t bottomCategory = 0x1 << 1;
             NSLog(@"transition");
         }
         else {
-            [self addRain:location];
+            [self addRain:touchLocation];
         }
         
         // TODO: add category bitmask for connecting drop & emitter splash

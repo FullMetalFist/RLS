@@ -8,18 +8,48 @@
 
 #import "RailwayScene.h"
 
+@interface RailwayScene ()
+
+@property (nonatomic) SKSpriteNode *locomotive;
+@property (nonatomic) SKAction *locomotiveAnimation;
+
+@end
+
 @implementation RailwayScene
 
 -(instancetype)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
         [self createCustomLabel:[lyricsModel h_railwayLyrics]];
+        self.locomotive = [SKSpriteNode spriteNodeWithImageNamed:@"trainAnim1"];
+        self.locomotive.position = CGPointMake(0,120);
+        [self.locomotive setScale:0.3];
+        self.locomotive.zPosition = 1;
+        [self addChild:self.locomotive];
+        [self createLocomotiveAnimation];
     }
     return self;
 }
 // some scene railway
 // TODO: objects/animals scroll by
 // TODO: smoke & sound from locomotive in scene
+-(void)createLocomotiveAnimation {
+    NSMutableArray *textures = [NSMutableArray array];
+    for (NSInteger i = 1; i < 4; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"trainAnim%ld", (long)i];
+        SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    for (NSInteger i = 3; i > 0; i--) {
+        NSString *textureName = [NSString stringWithFormat:@"trainAnim%ld", (long)i];
+        SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+        [textures addObject:texture];
+    }
+    self.locomotiveAnimation = [SKAction animateWithTextures:textures timePerFrame:0.1];
+    SKAction *repeat = [SKAction repeatActionForever:self.locomotiveAnimation];
+    [self.locomotive runAction:repeat];
+}
+
 -(void)didMoveToView:(SKView *)view {
     // Create ground
     SKTexture *groundTexture = [SKTexture textureWithImageNamed:@"Ground"];
