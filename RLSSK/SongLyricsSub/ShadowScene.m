@@ -31,32 +31,37 @@
 // TODO: skeleton (?) or balloon man or lizards/worms/snails/bugs
 
 -(void)didMoveToView:(SKView *)view {
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
-    sprite.position = CGPointMake(self.size.width / 3, self.size.height / 3);
-    [self addChild:sprite];
+    for (NSInteger i = 1; i < 5; i++) {
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+        sprite.position = CGPointMake(i * 100, self.size.height / 3);
+        sprite.zPosition = 1;
+        sprite.shadowCastBitMask = 1;
+        [self addChild:sprite];
+    }
     
-    // ugly sprite warning
-//    self.spriteShadow = [SKSpriteNode spriteNodeWithImageNamed:@"ballShadow"];
-//    self.spriteShadow.position = sprite.position;
-//    [self.spriteShadow setScale:0.3];
-//    [self addChild:self.spriteShadow];
+    NSString *emitterPath = [[NSBundle mainBundle] pathForResource:@"Fire" ofType:@"sks"];
+    SKEmitterNode *fireEmitter = [NSKeyedUnarchiver unarchiveObjectWithFile:emitterPath];
+    fireEmitter.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
+    fireEmitter.name = @"fireEmitter";
+    fireEmitter.zPosition = 1;
+    fireEmitter.targetNode = self;
+    [self addChild:fireEmitter];
     
-    self.spriteShadow = [SKSpriteNode spriteNodeWithImageNamed:@"ballShadow"];
-    self.spriteShadow.position = sprite.position;
-
-    self.spriteShadow.blendMode = SKBlendModeAlpha;
-    self.spriteShadow.colorBlendFactor = 1;
-    self.spriteShadow.color = [SKColor blackColor];
-    self.spriteShadow.alpha = .25; // partial transparency
-    [self addChild:self.spriteShadow];
+    SKLightNode *light = [[SKLightNode alloc] init];
+    light.categoryBitMask = 1;
+    light.falloff = 1;
+    light.ambientColor = [UIColor whiteColor];
+    light.lightColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:0.5];
+    light.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    [fireEmitter addChild:light];
+    
+    
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
-        
-        CGPoint touchLocation = [touch locationInNode:self];
-        
-        [self.spriteShadow runAction:[SKAction scaleTo:touchLocation.x / 5 duration:0.0]];
+        CGPoint location = [touch locationInNode:self];
+        [self childNodeWithName:@"fireEmitter"].position = CGPointMake(location.x, location.y);
     }
 }
 

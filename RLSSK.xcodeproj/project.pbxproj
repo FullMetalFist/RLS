@@ -27,6 +27,7 @@
 		7C8751A01B77407E00B45C11 /* RailwayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C87519F1B77407E00B45C11 /* RailwayScene.m */; };
 		7C8751A31B77412400B45C11 /* MoonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8751A21B77412400B45C11 /* MoonScene.m */; };
 		7CA655341B8A53C300C2D046 /* BoatAnimate.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */; };
+		7CC96AB11B8E40D600A17BE6 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CC96AB01B8E40D600A17BE6 /* Fire.sks */; };
 		7CF95E0A1B6AA672004A76B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E091B6AA672004A76B7 /* main.m */; };
 		7CF95E0D1B6AA672004A76B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E0C1B6AA672004A76B7 /* AppDelegate.m */; };
 		7CF95E101B6AA672004A76B7 /* CoverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E0F1B6AA672004A76B7 /* CoverScene.m */; };
@@ -84,6 +85,7 @@
 		7C8751A11B77412400B45C11 /* MoonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoonScene.h; path = SongLyricsSub/MoonScene.h; sourceTree = "<group>"; };
 		7C8751A21B77412400B45C11 /* MoonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoonScene.m; path = SongLyricsSub/MoonScene.m; sourceTree = "<group>"; };
 		7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BoatAnimate.atlas; sourceTree = "<group>"; };
+		7CC96AB01B8E40D600A17BE6 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		7CF95E041B6AA672004A76B7 /* RLSSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RLSSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF95E081B6AA672004A76B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF95E091B6AA672004A76B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				7C6456D81B6ED8450030E8A7 /* Rain.sks */,
 				7C6456D91B6ED8450030E8A7 /* spark.png */,
+				7CC96AB01B8E40D600A17BE6 /* Fire.sks */,
 				7C6456DC1B6EDD7C0030E8A7 /* Snow.sks */,
 				7C23BA8F1B7C065800EAA59A /* Wind.sks */,
 				7C23BA911B7CE5B600EAA59A /* Splash.sks */,
@@ -349,6 +352,7 @@
 				7CF95E121B6AA672004A76B7 /* GameScene.sks in Resources */,
 				7C23BA8C1B7BE0B300EAA59A /* MarcusFont.ttf in Resources */,
 				7C6456DA1B6ED8450030E8A7 /* Rain.sks in Resources */,
+				7CC96AB11B8E40D600A17BE6 /* Fire.sks in Resources */,
 				7C6456DD1B6EDD7C0030E8A7 /* Snow.sks in Resources */,
 				7CF95E181B6AA672004A76B7 /* Main.storyboard in Resources */,
 			);
