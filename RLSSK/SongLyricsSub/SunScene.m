@@ -79,6 +79,14 @@
     
     // add to screen
     [self addChild:self.sun];
+    
+    SKLightNode *light = [[SKLightNode alloc] init];
+    light.categoryBitMask = 1;
+    light.falloff = 1;
+    light.ambientColor = [UIColor whiteColor];
+    light.lightColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:0.5];
+    light.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    [self.sun addChild:light];
 }
 
 - (void)update:(NSTimeInterval)currentTime {

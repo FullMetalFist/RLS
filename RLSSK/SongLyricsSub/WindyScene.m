@@ -34,6 +34,8 @@
     }
 }
 
+// TODO: user taps and wind starts
+
 // TODO: wind sound effect breeze -> tornado
 // TODO: coremotion influenced
 
