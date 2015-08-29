@@ -31,7 +31,7 @@
         [self createPhysicsWorld];
         
         [self addBoat];
-//        [self boatFrames];    // not animating correctly
+        [self boatFrames];    // not animating correctly
     }
     return self;
 }

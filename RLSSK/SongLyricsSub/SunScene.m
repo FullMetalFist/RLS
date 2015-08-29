@@ -87,6 +87,14 @@
     light.lightColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:0.5];
     light.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     [self.sun addChild:light];
+    
+    for (NSInteger i = 1; i < 15; i++) {
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+        sprite.position = CGPointMake(i * 100, self.size.height / 3);
+        sprite.zPosition = 1;
+        sprite.shadowCastBitMask = 1;
+        [self addChild:sprite];
+    }
 }
 
 - (void)update:(NSTimeInterval)currentTime {
