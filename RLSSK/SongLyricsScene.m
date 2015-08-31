@@ -37,6 +37,7 @@ static const NSInteger menuZposition = 60;
     self = [super initWithSize:size];
     if (self) {
         
+        // ignore for the moment
         [self tileBackground];
         
         [self createButtons];
@@ -172,10 +173,11 @@ static const NSInteger menuZposition = 60;
         // the rest of the code should be self-explanatory
         _multiLineLabel.name = [NSString stringWithFormat:@"line%d",i];
         _multiLineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
-        _multiLineLabel.fontSize = 20;
+        _multiLineLabel.fontSize = 28;
 //        _multiLineLabel.fontColor = [SKColor colorWithRed:1 green:1 blue:1.0 alpha:1.0];
         _multiLineLabel.fontColor = [SKColor blackColor];
-        _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2 + 200 - 20*i);
+        
+        _multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2 + 200 - 30*i);
         _multiLineLabel.color = [SKColor greenColor];
         
         

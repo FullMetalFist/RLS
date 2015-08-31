@@ -8,6 +8,7 @@
 
 #import "CoverScene.h"
 #import "MenuScene.h"
+#import "Utils.h"
 
 @interface CoverScene()
 
@@ -31,7 +32,7 @@
         button.color = [SKColor lightGrayColor];
         SKLabelNode *buttonLabel = [SKLabelNode labelNodeWithText:@"tap here to continue"];
         
-        UIFont *rlsFont = [UIFont fontWithName:@"MarcusFont" size:14];
+        UIFont *rlsFont = [UIFont fontWithName:FontTitle size:14];
         
         buttonLabel.fontName = rlsFont.fontName;
         [button addChild:buttonLabel];

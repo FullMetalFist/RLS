@@ -7,11 +7,14 @@
 //
 
 #import "RailwayScene.h"
+#import "PBParallaxScrolling.h"
 
 @interface RailwayScene ()
 
 @property (nonatomic) SKSpriteNode *locomotive;
 @property (nonatomic) SKAction *locomotiveAnimation;
+@property (nonatomic) PBParallaxBackgroundDirection direction;
+@property (nonatomic) PBParallaxScrolling *parallaxScrolling;
 
 @end
 
@@ -21,12 +24,19 @@
     if (self = [super initWithSize:size]) {
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
         [self createCustomLabel:[lyricsModel h_railwayLyrics]];
+        
+        NSArray *imageNames = @[@"pBackgroundHorizontal",@"pMiddleHorizontal",@"pForegroundHorizontal"];
+        PBParallaxScrolling *parallax = [[PBParallaxScrolling alloc] initWithBackgrounds:imageNames size:size direction:kPBParallaxBackgroundDirectionLeft fastestSpeed:kPBParallaxBackgroundDefaultSpeed andSpeedDecrease:kPBParallaxBackgroundDefaultSpeedDifferential];
+        self.parallaxScrolling = parallax;
+        [self addChild:parallax];
+        
         self.locomotive = [SKSpriteNode spriteNodeWithImageNamed:@"trainAnim1"];
         self.locomotive.position = CGPointMake(0,120);
         [self.locomotive setScale:0.3];
         self.locomotive.zPosition = 1;
         [self addChild:self.locomotive];
         [self createLocomotiveAnimation];
+        
     }
     return self;
 }
@@ -83,6 +93,10 @@
         [sprite runAction:moveSkylineSpriteForever];
         [self addChild:sprite];
     }
+}
+
+-(void)update:(NSTimeInterval)currentTime {
+    [self.parallaxScrolling update:currentTime];
 }
 
 // TODO: wheels up close, then animate loop until voice starts

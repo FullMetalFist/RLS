@@ -34,20 +34,24 @@ static inline CGFloat ScalarRandomRange(CGFloat min,
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
         [self createCustomLabel:[lyricsModel h_counterpaneLyrics]];
         
-        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"bedsheets"];
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"counterPaneBackground1"];
         background.position = CGPointMake(self.size.width / 2, self.size.height / 4);
         background.zPosition = -5;
-        background.size = CGSizeMake(self.size.width, self.size.height / 3);
+//        background.size = CGSizeMake(self.size.width, self.size.height / 3);
+        background.size = CGSizeMake(self.size.width, self.size.height);
+
         [self addChild:background];
         
-        
-        
-        self.toybox = [SKSpriteNode spriteNodeWithImageNamed:@"toybox"];
-        self.toybox.position = CGPointMake(self.size.width - 100, self.size.height / 3 - 150);
-        self.toybox.name = @"toybox";
-        [self addChild:self.toybox];
+//        [self createToybox];
     }
     return self;
+}
+
+- (void)createToybox {
+    self.toybox = [SKSpriteNode spriteNodeWithImageNamed:@"toybox"];
+    self.toybox.position = CGPointMake(self.size.width - 100, self.size.height / 3 - 150);
+    self.toybox.name = @"toybox";
+    [self addChild:self.toybox];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

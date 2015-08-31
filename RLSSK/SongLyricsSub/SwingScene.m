@@ -19,6 +19,14 @@
     if (self = [super initWithSize:size]) {
         LyricsModel *lyricsModel = [[LyricsModel alloc] init];
         [self createCustomLabel:[lyricsModel h_swingLyrics]];
+        
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"introGarden1"];
+        background.position = CGPointMake(self.size.width / 2, self.size.height / 2);
+        background.zPosition = -5;
+        //        background.size = CGSizeMake(self.size.width, self.size.height / 3);
+        background.size = CGSizeMake(self.size.width, self.size.height);
+        [self addChild:background];
+        
 //        TextDisplay *textDisplay = [[TextDisplay alloc] init];
 //        [textDisplay createBubbleWithText:[lyricsModel h_swingLyrics] textSize:TextSize maxLineLength:30];
 //        textDisplay.position = CGPointMake(self.size.width / 2, self.size.height / 2);

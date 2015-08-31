@@ -7,6 +7,7 @@
 //
 
 #import "ShadowScene.h"
+#import "PBParallaxScrolling.h"
 
 @interface ShadowScene ()
 
@@ -24,6 +25,8 @@
     return self;
 }
 
+// TODO: research serious bug EXC_BAD_ACCESS error when trying to leave scene
+
 // TODO: accelerometer and shadow intertwined (!)
 // TODO: character with shadow
 // TODO: apply geometry to each node
@@ -31,11 +34,12 @@
 // TODO: skeleton (?) or balloon man or lizards/worms/snails/bugs
 
 -(void)didMoveToView:(SKView *)view {
-    for (NSInteger i = 1; i < 5; i++) {
+    for (NSInteger i = 1; i < 3; i++) {
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
         sprite.position = CGPointMake(i * 100, self.size.height / 3);
         sprite.zPosition = 1;
         sprite.shadowCastBitMask = 1;
+        [sprite setScale:0.4];
         [self addChild:sprite];
     }
     

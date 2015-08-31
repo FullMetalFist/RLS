@@ -28,6 +28,7 @@
 		7C8751A31B77412400B45C11 /* MoonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8751A21B77412400B45C11 /* MoonScene.m */; };
 		7CA655341B8A53C300C2D046 /* BoatAnimate.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */; };
 		7CC96AB11B8E40D600A17BE6 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CC96AB01B8E40D600A17BE6 /* Fire.sks */; };
+		7CC96AB41B9218DB00A17BE6 /* PBParallaxScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC96AB31B9218DB00A17BE6 /* PBParallaxScrolling.m */; };
 		7CF95E0A1B6AA672004A76B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E091B6AA672004A76B7 /* main.m */; };
 		7CF95E0D1B6AA672004A76B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E0C1B6AA672004A76B7 /* AppDelegate.m */; };
 		7CF95E101B6AA672004A76B7 /* CoverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF95E0F1B6AA672004A76B7 /* CoverScene.m */; };
@@ -86,6 +87,8 @@
 		7C8751A21B77412400B45C11 /* MoonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoonScene.m; path = SongLyricsSub/MoonScene.m; sourceTree = "<group>"; };
 		7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BoatAnimate.atlas; sourceTree = "<group>"; };
 		7CC96AB01B8E40D600A17BE6 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		7CC96AB21B9218DB00A17BE6 /* PBParallaxScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBParallaxScrolling.h; sourceTree = "<group>"; };
+		7CC96AB31B9218DB00A17BE6 /* PBParallaxScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBParallaxScrolling.m; sourceTree = "<group>"; };
 		7CF95E041B6AA672004A76B7 /* RLSSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RLSSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF95E081B6AA672004A76B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF95E091B6AA672004A76B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				7CA655331B8A53C300C2D046 /* BoatAnimate.atlas */,
 				7C23BA991B7E319500EAA59A /* Utils.h */,
 				7C23BA9A1B7E319500EAA59A /* Utils.m */,
+				7CC96AB21B9218DB00A17BE6 /* PBParallaxScrolling.h */,
+				7CC96AB31B9218DB00A17BE6 /* PBParallaxScrolling.m */,
 				7C8751971B773BF600B45C11 /* SongLyricsSub */,
 			);
 			name = Scenes;
@@ -380,6 +385,7 @@
 				7C362DDD1B7903530044B2AC /* RainScene.m in Sources */,
 				7C362DE31B791F150044B2AC /* CounterpaneScene.m in Sources */,
 				7CF95E3A1B6AB5A0004A76B7 /* LyricsModel.m in Sources */,
+				7CC96AB41B9218DB00A17BE6 /* PBParallaxScrolling.m in Sources */,
 				7CF95E371B6AB488004A76B7 /* SongLyricsScene.m in Sources */,
 				7C362DDA1B7903240044B2AC /* BoatScene.m in Sources */,
 				7CF95E341B6AAB38004A76B7 /* MenuScene.m in Sources */,
