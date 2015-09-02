@@ -55,8 +55,9 @@ typedef NS_ENUM(NSUInteger, titleButton){
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    
+    NSLog(@"in the menu");
 }
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
@@ -168,6 +169,7 @@ typedef NS_ENUM(NSUInteger, titleButton){
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    NSLog(@"updating");
 }
 
 -(void)loadButtons {

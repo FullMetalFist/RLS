@@ -29,6 +29,8 @@ static const NSInteger menuZposition = 60;
 @property (nonatomic) SKSpriteNode *rightButton;
 @property (nonatomic) SKSpriteNode *menuButton;
 
+@property (nonatomic) SKScene *menuScene;
+
 @end
 
 @implementation SongLyricsScene
@@ -38,7 +40,7 @@ static const NSInteger menuZposition = 60;
     if (self) {
         
         // ignore for the moment
-        [self tileBackground];
+//        [self tileBackground];
         
         [self createButtons];
     }
@@ -60,11 +62,14 @@ static const NSInteger menuZposition = 60;
     NSString *nodeTapped = node.name;
     
     SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
-    SKScene *nextScene = [[MenuScene alloc] initWithSize:self.size];
+    if (!self.menuScene) {
+        self.menuScene = [[MenuScene alloc] initWithSize:self.size];
+
+    }
     
     if ([nodeTapped isEqualToString:MenuButton]) {
         
-        [self.view presentScene:nextScene transition:transition];
+        [self.view presentScene:self.menuScene transition:transition];
     }
 }
 

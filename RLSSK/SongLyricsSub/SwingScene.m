@@ -78,7 +78,7 @@
     [_pendulum setPosition:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
     _pendulum.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_pendulum.size];
     _pendulum.physicsBody.dynamic = NO;
-    _pendulum.zPosition = -1;
+    _pendulum.zPosition = -10;
     [self addChild:_pendulum];
     
     CGPoint pendalumjointanchor = _pendulum.position;

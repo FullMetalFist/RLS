@@ -39,7 +39,7 @@
         sprite.position = CGPointMake(i * 100, self.size.height / 3);
         sprite.zPosition = 1;
         sprite.shadowCastBitMask = 1;
-        [sprite setScale:0.4];
+//        [sprite setScale:0.4];
         [self addChild:sprite];
     }
     
@@ -58,8 +58,6 @@
     light.lightColor = [UIColor colorWithRed:1.0 green:1.0 blue:0.0 alpha:0.5];
     light.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     [fireEmitter addChild:light];
-    
-    
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
